@@ -36,7 +36,7 @@ Enter file path:
 ```
 Enter your file path:
 ```file.txt```
-and you'll have your single translated file.txt
+and you'll have your single translated file.txt.
 
 NOTE: you can change file parting size (in characters) by going into "devideFile.py"
-and changing ```jump_num``` to whatever number you'd like
+and changing ```jump_num``` to whatever number you'd like.

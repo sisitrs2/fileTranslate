@@ -21,7 +21,7 @@ Enter your file path:
 you'll get parts of your file as so:
 ```
 ls:
-file(1).txt file(2).txt
+file(1).txt file(2).txt ...
 ```
 now go to: https://translate.google.com/?tr=f
 Enter your file(1).txt, copy result to the same file.

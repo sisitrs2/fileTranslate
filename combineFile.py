@@ -1,7 +1,6 @@
 import os
 
 def main():
-    jump_num = 5
     #get file to combine.
     path = raw_input("Enter file path: ")
     parts = path.split('.')

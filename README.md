@@ -9,23 +9,31 @@ Here's an example of a victim to this problem: https://productforums.google.com/
 
 using this tool is realy simple but probably not the best way XD
 just run
-```$ python devideFile.py```
+```
+$ python devideFile.py
+```
 you'll get this output:
-```Enter file path: ```
+```
+Enter file path:
+```
 Enter your file path:
-```Enter file path: file.txt```
+```file.txt```
 you'll get parts of your file as so:
 ```
-ls
+ls:
 file(1).txt file(2).txt
 ```
 now go to: https://translate.google.com/?tr=f
 Enter your file(1).txt, copy result to the same file.
 do the same for the rest of your files.
 then run
-```$ python combineFile.py```
+```
+$ python combineFile.py
+```
 you'll get this output:
-```Enter file path: ```
+```
+Enter file path: 
+```
 Enter your file path:
-```Enter file path: file.txt```
+```file.txt```
 and you'll have your single translated file.txt

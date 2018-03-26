@@ -1,15 +1,13 @@
 import os
 
-def main():
+def devideFile(path):
     jump_num = 15000
     while True:
         try:
             #get file to devide.
-            path = raw_input("Enter file path: ")
             parts = path.split('.')
             file_type = parts[1] #.txt || .md ||
             path = parts[0]
-            print file_type
             file = open(path + "." + file_type, "r")
             break
         except IOError:
@@ -25,5 +23,4 @@ def main():
     file.close()
     os.remove(path + "." + file_type)
 
-main()
 

@@ -1,8 +1,7 @@
 import os
 
-def main():
+def combineFile(path):
     #get file to combine.
-    path = raw_input("Enter file path: ")
     parts = path.split('.')
     file_type = parts[1] #.txt || .md ||
     path = parts[0]
@@ -19,5 +18,4 @@ def main():
             break
     file.close()
 
-main()
 

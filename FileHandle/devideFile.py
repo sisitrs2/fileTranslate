@@ -1,7 +1,7 @@
 import os
 
 def devideFile(path):
-    jump_num = 4999 
+    jump_num = 3500 #seem to not cause any troubles. (3850 did, depends on the file) 
     while True:
         try:
             #get file to devide.
@@ -12,7 +12,7 @@ def devideFile(path):
             break
         except IOError:
             print "No such file in direcory, Try again."
-    data = file.read()
+    data = unicode(file.read())
     i = 1
     while data:
         temp = open((path + "(" +  str(i) + ")") + "." + file_type, "a")

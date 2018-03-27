@@ -5,6 +5,7 @@ import requests
 from FileHandle.devideFile import devideFile
 from FileHandle.combineFile import combineFile
 from FileHandle.create_directory import create_directory
+import sys 
 
 
 def translate_all(path):
@@ -18,14 +19,10 @@ def translate_all(path):
     while True: #run as long as there are files left.
         try:
             temp = open(path + "(" + str(i) + ")" + "." + file_type, "r") #file(1).txt 
-            string = temp.read() #for code readability
-            print type(string)
+            string = unicode(temp.read()) #for code readability
             try:
                 translated = trans.translate(string) #for code readability (temp.read() => string)
 		output += translated.text
-		print type(output)
-		print type(translated.text)
-                print "#######" + output[:20]
             except requests.exceptions.ConnectionError:
                 print "Connection refused"
                 print "You might not have internet connection"
@@ -34,21 +31,22 @@ def translate_all(path):
             i += 1
         except IOError:
             break
-        sleep(1) #just so google wouldn't block client.
+        sleep(0.2) #just so google wouldn't block client.
     return output
 
 
 def main():
+    reload(sys)  
+    sys.setdefaultencoding('utf8')
     trans = Translator()
     
     path = raw_input("Hello user, \nEnter file to translate  path: \n")
     file = open(path, "r")
     string = file.read()
-    print str(len(string))
-    if len(string) > 4999: #5k maximum google server can translate
+    if len(string) > 3500: #5k maximum google server can translate (less in unicode)
         file.close()
         devideFile(path)
-        print "Large file, please wait.."
+        print "Large file, please wait (this can take a minute).."
         output = translate_all(path)
         combineFile(path)
     else:

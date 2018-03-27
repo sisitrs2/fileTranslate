@@ -19,8 +19,13 @@ def translate_all(path):
         try:
             temp = open(path + "(" + str(i) + ")" + "." + file_type, "r") #file(1).txt 
             string = temp.read() #for code readability
+            print type(string)
             try:
-                output += (trans.translate(string).text) #for code readability (temp.read() => string)
+                translated = trans.translate(string) #for code readability (temp.read() => string)
+		output += translated.text
+		print type(output)
+		print type(translated.text)
+                print "#######" + output[:20]
             except requests.exceptions.ConnectionError:
                 print "Connection refused"
                 print "You might not have internet connection"
@@ -40,7 +45,7 @@ def main():
     file = open(path, "r")
     string = file.read()
     print str(len(string))
-    if len(string) > 15000: #15k maximum google server can translate
+    if len(string) > 4999: #5k maximum google server can translate
         file.close()
         devideFile(path)
         print "Large file, please wait.."

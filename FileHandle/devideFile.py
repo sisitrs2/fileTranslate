@@ -1,7 +1,7 @@
 import os
 
 def devideFile(path):
-    jump_num = 15000
+    jump_num = 4999 
     while True:
         try:
             #get file to devide.

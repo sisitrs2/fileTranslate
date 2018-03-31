@@ -20,7 +20,7 @@ After that all you got to do is run
 ```
 $ python translate.py
 ```
-##further explanation
+## further explanation
 you'll get this output:
 ```
 Enter file path:

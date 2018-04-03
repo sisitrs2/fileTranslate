@@ -18,4 +18,8 @@ def combineFile(path):
             break
     file.close()
 
-
+if __name__ == '__main__':
+    print "Hello, please enter file path"
+    path = raw_input()
+    combineFile(path)
+    print "file was combine successfuly."

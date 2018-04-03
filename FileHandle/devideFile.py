@@ -2,16 +2,15 @@ import os
 
 def devideFile(path):
     jump_num = 3500 #seem to not cause any troubles. (3850 did, depends on the file) 
-    while True:
-        try:
-            #get file to devide.
-            parts = path.split('.')
-            file_type = parts[1] #.txt || .md ||
-            path = parts[0]
-            file = open(path + "." + file_type, "r")
-            break
-        except IOError:
-            print "No such file in direcory, Try again."
+    try:
+        #get file to devide.
+        parts = path.split('.')
+        file_type = parts[1] #.txt || .md ||
+        path = parts[0]
+        file = open(path + "." + file_type, "r")
+        break
+    except IOError:
+        print "No such file in direcory, Try again."
     data = unicode(file.read())
     i = 1
     while data:
@@ -23,4 +22,8 @@ def devideFile(path):
     file.close()
     os.remove(path + "." + file_type)
 
-
+if __name__ == '__main__':
+    print "Hello, please enter file path:"
+    path = raw_input()
+    devideFile(path)
+    print "File was devided successfuly."

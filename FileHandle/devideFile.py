@@ -1,7 +1,7 @@
 import os
 
-def devideFile(path):
-    jump_num = 1000 #seem to not cause any troubles. (3850 did, depends on the file) 
+def devideFile(path, jump_num = 3500):
+     #seem to not cause any troubles. (3850 did, depends on the file) 
     try:
         #get file to devide.
         parts = path.split('.')

@@ -8,7 +8,7 @@ from FileHandle.create_directory import create_directory
 import sys 
 
 
-def translate_all(path):
+def translate_all(path, jump_num = 3500):
     trans = Translator()
     parts = path.split('.')
     file_type = parts[1] #.txt || .md ||
@@ -36,6 +36,8 @@ def translate_all(path):
 
 
 def main():
+    jump_num = 3500
+    not_work = True
     reload(sys)  
     sys.setdefaultencoding('utf8')
     trans = Translator()
@@ -43,11 +45,21 @@ def main():
     path = raw_input("Hello user, \nEnter file to translate  path: \n")
     file = open(path, "r")
     string = file.read()
-    if len(string) > 1000: #5k maximum google server can translate (less in unicode)
+    if len(string) > 3500: #5k maximum google server can translate (less in unicode)
         file.close()
         devideFile(path)
         print "Large file, please wait (this can take a minute).."
-        output = translate_all(path)
+	while not_work:
+            try:
+                output = translate_all(path, jump_num)
+                print "Worked fine"
+                not_work = False
+            except ValueError:
+                print "Fixing JSON problems.."
+		combineFile(path)
+                jump_num -= 100
+		devideFile(path, jump_num)
+                continue
         combineFile(path)
     else:
         file.close()

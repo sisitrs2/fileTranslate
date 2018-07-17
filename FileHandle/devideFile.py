@@ -1,14 +1,13 @@
 import os
 
 def devideFile(path):
-    jump_num = 3500 #seem to not cause any troubles. (3850 did, depends on the file) 
+    jump_num = 1000 #seem to not cause any troubles. (3850 did, depends on the file) 
     try:
         #get file to devide.
         parts = path.split('.')
         file_type = parts[1] #.txt || .md ||
         path = parts[0]
         file = open(path + "." + file_type, "r")
-        break
     except IOError:
         print "No such file in direcory, Try again."
     data = unicode(file.read())

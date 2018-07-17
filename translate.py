@@ -43,7 +43,7 @@ def main():
     path = raw_input("Hello user, \nEnter file to translate  path: \n")
     file = open(path, "r")
     string = file.read()
-    if len(string) > 3500: #5k maximum google server can translate (less in unicode)
+    if len(string) > 1000: #5k maximum google server can translate (less in unicode)
         file.close()
         devideFile(path)
         print "Large file, please wait (this can take a minute).."

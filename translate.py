@@ -38,16 +38,23 @@ def translate_all(path, jump_num = 3500):
 def main():
     jump_num = 3500
     not_work = True
+    file_not_exist = True
     reload(sys)  
     sys.setdefaultencoding('utf8')
     trans = Translator()
     
-    path = raw_input("Hello user, \nEnter file to translate  path: \n")
-    file = open(path, "r")
+    print "Hello user, "
+    while file_not_exist: 
+        path = raw_input("Enter file to translate  path: \n")
+        try:
+            file = open(path, "r")
+            file_not_exist = False
+        except IOError:
+           print "File does not exist, try again\n" 
     string = file.read()
-    if len(string) > 3500: #5k maximum google server can translate (less in unicode)
+    if len(string) > jump_num: #5k maximum google server can translate (less in unicode)
         file.close()
-        devideFile(path)
+        devideFile(path, jump_num)
         print "Large file, please wait (this can take a minute).."
 	while not_work:
             try:
